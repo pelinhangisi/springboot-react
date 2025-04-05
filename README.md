@@ -17,4 +17,4 @@ Instead of copying code directly, I’m:
 - Transitioning from Axios to Fetch for data handling
 - Customizing each step to develop my own way of learning
 
-- PART 1 : Medium [https://medium.com/@pelinhangisi/full-stack-development-with-react-spring-boot-part-1-registration-page-first-api-call-005af00d38ea]
+[Medium Part1 Full Stack Development with React + Spring Boot — Part 1: Registration Page, First API Call & Password Security](https://medium.com/@pelinhangisi/full-stack-development-with-react-spring-boot-part-1-registration-page-first-api-call-005af00d38ea)
