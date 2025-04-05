@@ -1,4 +1,4 @@
-import { use, useState } from 'react';
+import { use, useEffect, useState } from 'react';
 import { signUp } from './api';
 
 export function SignUp() {
@@ -8,10 +8,17 @@ export function SignUp() {
   const [passwordRepeat, setPasswordRepeat] = useState();
   const [apiProgress, setApiProgress] = useState(false);
   const [successMessage, setSuccessMessage] = useState();
+  const [errors, setErrors] = useState({});
+  const [generalError, setGeneralError] = useState();
+
+  useEffect(() => {
+    setErrors({});
+  }, [username]);
 
   const onSubmit = async (event) => {
     event.preventDefault();
     setSuccessMessage();
+    setGeneralError();
     setApiProgress(true);
 
     try {
@@ -21,7 +28,15 @@ export function SignUp() {
         password,
       });
       setSuccessMessage(response.data.message);
-    } catch {
+    } catch (axiosError) {
+      if (
+        axiosError.response?.data &&
+        axiosError.response.data.status === 400
+      ) {
+        setErrors(axiosError.response.data.validationErrors);
+      } else {
+        setGeneralError('Beklenmedik bir hata oluştu. Lütfen tekrar deneyin');
+      }
     } finally {
       setApiProgress(false);
     }
@@ -41,9 +56,12 @@ export function SignUp() {
               </label>
               <input
                 id="username"
-                className="form-control"
+                className={
+                  errors.username ? 'form-control is-invalid' : 'form-control'
+                }
                 onChange={(event) => setUsername(event.target.value)}
               />
+              <div className="invalid-feedback">{errors.username}</div>
             </div>
             <div className="mb-3">
               <label htmlFor="email" className="form-label">
@@ -79,6 +97,9 @@ export function SignUp() {
             </div>
             {successMessage && (
               <div className="alert alert-success">{successMessage}</div>
+            )}
+            {generalError && (
+              <div className="alert alert-danger">{generalError}</div>
             )}
             <div className="text-center">
               <button
