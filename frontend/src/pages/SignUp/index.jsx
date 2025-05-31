@@ -1,5 +1,6 @@
 import { use, useEffect, useState } from 'react';
 import { signUp } from './api';
+import { Input } from './components/Input';
 
 export function SignUp() {
   const [username, setUsername] = useState();
@@ -12,8 +13,22 @@ export function SignUp() {
   const [generalError, setGeneralError] = useState();
 
   useEffect(() => {
-    setErrors({});
+    setErrors(function (lastErrors) {
+      return {
+        ...lastErrors,
+        username: undefined,
+      };
+    });
   }, [username]);
+
+  useEffect(() => {
+    setErrors(function (lastErrors) {
+      return {
+        ...lastErrors,
+        email: undefined,
+      };
+    });
+  }, [email]);
 
   const onSubmit = async (event) => {
     event.preventDefault();
@@ -50,29 +65,19 @@ export function SignUp() {
             <h1>Kayıt Ol</h1>
           </div>
           <div className="card-body">
-            <div className="mb-3">
-              <label htmlFor="username" className="form-label">
-                Kullanıcı Adı-Soyadı
-              </label>
-              <input
-                id="username"
-                className={
-                  errors.username ? 'form-control is-invalid' : 'form-control'
-                }
-                onChange={(event) => setUsername(event.target.value)}
-              />
-              <div className="invalid-feedback">{errors.username}</div>
-            </div>
-            <div className="mb-3">
-              <label htmlFor="email" className="form-label">
-                E-mail
-              </label>
-              <input
-                id="email"
-                className="form-control"
-                onChange={(event) => setEmail(event.target.value)}
-              />
-            </div>
+            <Input
+              id="username"
+              label="Kullanıcı Adı Soyadı"
+              error={errors.username}
+              onChange={(event) => setUsername(event.target.value)}
+            />
+            <Input
+              id="email"
+              label="E-mail"
+              error={errors.email}
+              onChange={(event) => setEmail(event.target.value)}
+            />
+
             <div className="mb-3">
               <label htmlFor="password" className="form-label">
                 Şifre
