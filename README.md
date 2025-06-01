@@ -18,3 +18,5 @@ Instead of copying code directly, I’m:
 - Customizing each step to develop my own way of learning
 
 [Medium Part1 Full Stack Development with React + Spring Boot — Part 1: Registration Page, First API Call & Password Security](https://medium.com/@pelinhangisi/full-stack-development-with-react-spring-boot-part-1-registration-page-first-api-call-005af00d38ea)
+
+[Medium Part2 Full Stack Development with React + Spring Boot — Part 2 Validation]([https://medium.com/@pelinhangisi/full-stack-development-with-react-spring-boot-part-1-registration-page-first-api-call-005af00d38ea](https://medium.com/@pelinhangisi/full-stack-development-with-react-spring-boot-part-2-validation-26fc65247c10))
