@@ -13,7 +13,7 @@ import jakarta.validation.Payload;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface UniqueEmail {
 
-    String message() default "E-mail kayıtlı";
+    String message() default "{hangisip.constraint.email.notunique}";
 
     Class<?>[] groups() default {};
 
