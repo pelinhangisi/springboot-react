@@ -21,3 +21,4 @@ Instead of copying code directly, I’m:
 
 [Medium Part2 Full Stack Development with React + Spring Boot — Part 2 Validation](https://medium.com/@pelinhangisi/full-stack-development-with-react-spring-boot-part-2-validation-26fc65247c10)
 
+[Medium Part3 Full Stack Development with React + Spring Boot — Part 3 Internationalization](https://medium.com/@pelinhangisi/full-stack-development-with-react-spring-boot-part-3-internationalization-d8fc076712cf)
