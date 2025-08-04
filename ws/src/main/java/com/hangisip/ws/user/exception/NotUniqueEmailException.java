@@ -16,6 +16,6 @@ public class NotUniqueEmailException extends RuntimeException {
 
     public Map<String, String> getValidationErrors() {
         return Collections.singletonMap("email",
-                Messages.getMessageForLocale("hangisip.constraint.emain.notunique", LocaleContextHolder.getLocale()));
+                Messages.getMessageForLocale("hangisip.constraint.email.notunique", LocaleContextHolder.getLocale()));
     }
 }
