@@ -1,18 +1,19 @@
+import { TextField } from '@mui/material';
+
 export function Input(props) {
-  const { id, label, error, onChange, type } = props;
+  const { id, label, error, onChange, type = 'text' } = props;
 
   return (
-    <div className="mb-3">
-      <label htmlFor={id} className="form-label">
-        {label}
-      </label>
-      <input
-        id="username"
-        className={error ? 'form-control is-invalid' : 'form-control'}
-        onChange={onChange}
-        type={type}
-      />
-      <div className="invalid-feedback">{error}</div>
-    </div>
+    <TextField
+      id={id}
+      label={label}
+      error={Boolean(error)}
+      helperText={error}
+      onChange={onChange}
+      type={type}
+      margin="normal"
+      fullWidth
+      variant="outlined"
+    />
   );
 }
